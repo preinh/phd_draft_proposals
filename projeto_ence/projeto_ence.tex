@@ -1,0 +1,479 @@
+%% abtex2-modelo-projeto-pesquisa.tex, v<VERSION> laurocesar
+%% Copyright 2012-<COPYRIGHT_YEAR> by abnTeX2 group at http://www.abntex.net.br/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://www.abntex.net.br/
+%%
+%% This work consists of the files abntex2-modelo-projeto-pesquisa.tex
+%% and abntex2-modelo-references.bib
+%%
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Projeto de pesquisa em conformidade com 
+% ABNT NBR 15287:2011 Informação e documentação - Projeto de pesquisa -
+% Apresentação 
+% ------------------------------------------------------------------------ 
+% ------------------------------------------------------------------------
+
+\documentclass[
+	% -- opções da classe memoir --
+	11pt,				% tamanho da fonte
+%	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	openany,			% capítulos começam em qq pagina
+%	twoside,			% para impressão em recto e verso. Oposto a oneside
+	oneside,			% para impressão em recto e verso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	]{abntex2}
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+% \usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage{arev}				% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+%\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+% ---
+
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Condições de Vida no Antropoceno:\\
+Cenários para um Brasil em 2030.}
+
+\autor{Marlon Pirchiner}
+\local{São Paulo, Brasil}
+\data{2016, v0.1}
+\instituicao{%
+  Escola Nacional de Ciências Estatísticas - ENCE
+  \par
+  Instituto Brasileiro de Geografia e Estatística - IBGE
+  \par
+  Programa de Pós-Graduação em População, Território e Estatísticas Públicas}
+\tipotrabalho{Projeto de Doutorado}
+% O preambulo deve conter o tipo do trabalho, o objetivo, 
+% o nome da instituição e a área de concentração 
+\preambulo{Projeto de pesquisa em conformidade
+com as exigências do Programa de Pós Graduação e com as normas ABNT}
+% ---
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+\definecolor{webbrown}{rgb}{0.65, 0.16, 0.16}
+\definecolor{RoyalBlue}{rgb}{0.25, 0.41, 0.88}
+\definecolor{forestgreen}{rgb}{0.13, 0.55, 0.13}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={Marlon Pirchiner},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{projeto preliminar de pesquisa}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+		linkcolor=RoyalBlue, 
+		citecolor=forestgreen,
+%    	linkcolor=blue,          	% color of internal links
+%    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+%		urlcolor=blue,
+		urlcolor=webbrown,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+% \imprimircapa
+% ---
+% ---
+% Folha de rosto
+% ---
+\imprimirfolhaderosto
+% ---
+
+% ---
+% NOTA DA ABNT NBR 15287:2011, p. 4:
+%  ``Se exigido pela entidade, apresentar os dados curriculares do autor em
+%     folha ou página distinta após a folha de rosto.''
+% ---
+
+% ---
+% inserir lista de ilustrações
+% ---
+%\pdfbookmark[0]{\listfigurename}{lof}
+%\listoffigures*
+%\cleardoublepage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+%\pdfbookmark[0]{\listtablename}{lot}
+%\listoftables*
+%\cleardoublepage
+% ---
+
+% ---
+% inserir lista de abreviaturas e siglas
+% ---
+%\begin{siglas}
+%  \item[ABNT] Associação Brasileira de Normas Técnicas
+%  \item[abnTeX] ABsurdas Normas para TeX
+%\end{siglas}
+% ---
+
+% ---
+% inserir lista de símbolos
+% ---
+%\begin{simbolos}
+%  \item[$ \Gamma $] Letra grega Gama
+%  \item[$ \Lambda $] Lambda
+%  \item[$ \zeta $] Letra grega minúscula zeta
+%  \item[$ \in $] Pertence
+%\end{simbolos}
+% ---
+
+% ---
+% inserir o sumario
+% ---
+%\pdfbookmark[0]{\contentsname}{toc}
+%\tableofcontents*
+%\cleardoublepage
+% ---
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+% ----------------------------------------------------------
+% Introdução
+% ----------------------------------------------------------
+\chapter[Contexto]{Contexto}
+%\addcontentsline{toc}{chapter}{Introdução}
+
+O Antropoceno \cite{crutzen_anthropocene_2000,crutzen_geology_2002}, embora ainda não formalmente aceito e incluído na Escala de Tempo Geológica \cite{gradstein_geologic_2005,cohen_ics_2013} (GTS, sigla em Inglês) da Comissão Internacional em Estratigrafia (ICS\footnote{International Comission on Stratigraphy \url{http://www.stratigraphy.org}.}, sigla também em inglês) é um conceito recente que, mesmo remontando de certa forma à teoria de \citeonline{lovelock_gaia_1979}, rompe o presente \cite{hamilton_anthropocene_2016} ao localizar a humanidade, coletivamente e de forma indelével \cite{zalasiewicz_new_2010,zalasiewicz_anthropocene:_2011} no Sistema Terra \cite{jacobson_earth_2000}. Antes disso, embora algo como quando exatamente teria sido seu início ainda esteja em aberto\cite{zalasiewicz_when_2015}, esse mote científico vem demonstrando que após meados do século XX teria ocorrido uma `grande aceleração' tanto em indicadores sócio-econômicos quanto naturais  \cite{steffen_anthropocene:_2011}. A essencia unificadora desse conceito, em temas caros tanto às ciências Humanas quanto às Naturais, não só impulsiona o debate e a busca de uma solução conjunta como também evidencia, entre outras coisas, que com o atual ritmo do modo de produção global, uma \emph{população} crescente e diante da capacidade finita do ambiente, enquanto \emph{território} em disputa política, de atender à crescente demanda por energia e outros recursos, não só influencia diretamente nas \emph{condições de vida} e desenvolvimento, como desafia a capacidade de governança para organizar um futuro menos desigual, mais inclusivo e sustentável.
+
+Globalmente, embora ainda ocupe menos espaço do que seria desejável, esse debate já vem sendo travado e apesar das dificuldades inerentes ao processo, uma agenda global com objetivos globais para 2030 em desenvolvimento sustentável \cite{united_nations_transforming_2015}, cuja apreciação pela comunidade científica vem sendo feita por entidades como o Conselho Internacional para a Ciência (ICSU\footnote{International Council for Science \url{http://www.icsu.org}.}, sigla em inglês) e o Conselho Internacional para Ciências Sociais (ISSC\footnote{International Social Science Council \url{http://www.worldsocialscience.org}.}, sigla também em inglês) vêm sendo feitas \cite{icsu-issc_review_2015}. A desigualdade, que contundentemente escancara nossas falhas de governança e alocação melhor distribuída de recursos, é apresentada como o primeiro dos objetivos: a eliminação de toda e qualquer forma de pobreza onde quer que houvesse.
+
+É nessa problemática, dos desafios de governança e políticas públicas para melhoria sustentável, e em multiplas escalas, das condições sociais de vida agravadas pelo seu próprio modo de reprodução material, aparentemente contraditório com a capacidade de suporte do ambiente, que essa proposta de pesquisa se insere. 
+
+% ----------------------------------------------------------
+% Capitulo de textual  
+% ----------------------------------------------------------
+\chapter{Objetivos}
+
+O objetivo mais geral a ser atingido e proposto por essa pesquisa é apresentar cenários e estimativas de conformidade \cite{patterson_exploring_2016} com os objetivos globais para 2030 em desenvolvimento sustentável \cite{united_nations_transforming_2015}.
+
+Quando o problema central passa por temas como governança e proposição de políticas públicas a produção, também pública, de conhecimento, informações e dados é mais do que necessária. É possível até mesmo defender a imprescindibilidade dessas atividades, sem as quais não é possível que haja uma justa avaliação das respostas às propostas e medidas adotadas.
+
+A maioria, senão a totalidade, dos objetivos específicos dizem respeito, porém, ao modo pelo qual esses cenários e estimativas de conformidade pretendem ser desenvolvidos, entre eles:
+
+\begin{enumerate}
+	\item Investigar a avaliar o panorama atual de oferta de dados ambientais e sócio-economicos ligados,
+	\item Investigar e avaliar o uso de ontologias já desenvolvidas em contextos globais para modelar situações atuais de dados ambientais e socio-econômicos,
+	\item Investigar e avaliar a aplicação de técnicas de Processamento da Linguagem Natural para extensão semântica de dados ligados com dados inicialmente não-estruturados,
+	\item Investigar e avaliar modelos baseados em agentes para simulações de cenários de governança e desenvolvimento
+	\item Investigar e avaliar o uso integrado de tecnologias semânticas no consumo e assimilação contínua de dados em modelos de simulação social e otimização aplicados aos objetivos (ou pelo menos ao primeiro) globais para o desenvolvimento sutentável.
+\end{enumerate}
+
+% ----------------------------------------------------------
+% Capitulo de textual  
+% ----------------------------------------------------------
+\chapter{Justificativa}
+
+Dados do Antropoceno evidenciam a presença inequívoca da influência humana no Sistema Terra e insustentabilidade dos modos atuais de produção além da conhecida limitação na capacidade de suprimento da demanda corrente, com a tecnologia disponível, e com as atuais projeções de crescimento. Não apenas podem não haver recursos necessários para as gerações futuras como sequer é garantido elevar-se a eficiência na distribuição e uso dos existentes, ao manter-se o ritmo atual.
+
+Objetivos para o desenvolvimento, seja ele sustentável ou não, sempre foram objetos de agendas internacionais, nacionais, regionais e locais. Para 2030 as Nações Unidas apresentaram uma nova agenda com objetivos globais para o desenvolvimento sustentável. Destacado apenas o primeiro, a ``erradicação completa da pobreza sob todas as formas onde quer que houvesse''\cite{united_nations_transforming_2015} já é evidente os desfios de governança em múltiplas escalas.
+
+Tendo sido enormemente ampliada a capacidade de observação da Terra, incluindo diversos elementos e aspectos da sociededade e de suas atividades, cresceu na mesma proporção a dificuldade em se recuperar informações confiáveis de diversas origens. As dificuldades de comunicação para fora do interior dos mais diversos domínios de conhecimento são evidentes. O símbolo $N$ seria apenas de força ou carregaria em sí certa qúimica? Lidar com dados e conceidos de múltiplas fontes requer cuidado extremo. A necessidade de informação é crescente, bem como a do profissional.
+
+Além da aumento da importância nas disciplinas de informática no contexto das pesquisas científicas tanto em ciências da Terra e do espaço como no campo das Humanidades, tecnologias semânticas vêm sendo amplamente discutidas por fóruns internacionais como a Aliança para Dados de Pesquisa (RDA\footnote{Research Data Alliance \url{https://rd-alliance.org}}, sigla em inglês) e o Consórcio Mundial da Rede (W3C\footnote{World Wide Web Consortium \url{https://www.w3.org/standards/semanticweb/}}, sigla também em inglês) vêm discutindo a apresentando boas práticas para usuários da comunidade científica.
+
+A possibilidade de simular desdobramentos espaço-temporais do Sistema Terra, baseados em evidências, de decisões políticas e de governança em diversas escalas talvez tenha algo a contribuir nesse processo conjunto de desenvolvimento sustentável e redução das desigualdades com melhoria da condição de vida \cite{patterson_exploring_2016}.
+
+
+% ----------------------------------------------------------
+% Capitulo de textual  
+% ----------------------------------------------------------
+\chapter{Metodologia}
+
+Investigar a existência de provedores e do estado dos dados públicos disponíveis nas perspectiva de \citeonline{berners-lee_linked_2006} e outros \cite{bizer_linked_2009} para dados ligados. A espectativa é de que seja possível reconhecer provedores de observações contínuas da natureza e do ambiente, do uso da terra, bem como dados sócio-econômicos em multiplas escalas espaciais e temporais é uma das metodologias inicialmente consideradas para busca dos objetivos propostos. A identificação (e reúso), publicação e manutenção de vocábulários como forma de organização dos conhecimento usando um sistema simples para organização do conhecimento (SKOS\footnote{Simple Knowledge Organization System \url{https://www.w3.org/TR/2009/REC-skos-reference-20090818/}}) deve facilitar a extração e publicação de conjuntos de dados com suas respectivas proveniências e metadados.
+
+Além disso metodologias associadas ao campo das ciências da informação e documentação, bem como de engenharia e organização do conhecimento serão somadas para verificar as inserções e disponibilidade das tecnologias semânticas \cite{tim_berners-lee_james_hendler_and_ora_lassila_semantic_2001,berners-lee_publishing_2001,narock_science_2012,ma_semantic_2015,mattoso_addressing_2016} e das ciência da informação \cite{baker_egy:_2009, fox_rise_2012} em ampliar as capacidades de interoperabilidade \cite{cardoso_semantic_2003} sem contudo perder em confiabilidade \cite{gil_towards_2007} e reprodutibilidade \cite{mattoso_addressing_2016} com o uso conveniente da proveniência \cite{lebo_prov-o:_2013} em conjuntos de dados.
+
+Metodologias complementares seriam adotadas para atingir objetivos, por exemplo, acerca da disponibilidade de ontologias, ou representações formais do estado e da evolução do conhecimento, da terminologia, dos conceitos, relacionamentos, podendo também expressar restrições lógicas, nos domínios scientíficos de conhecimento específico que versem ou se relacionem com dados e modelos de desenvolvimento existentes. O que seria uma abordagem dedutiva para a representação do saber-fazer científico, codificação rigorosa de metodologias e divulgação de resultados \cite{patton_semnext:_2015,mattoso_addressing_2016,diviacco_collaborative_2015}.
+
+Para idealizar e desenvolver um fluxo de trabalho, utilizando-se do Processamento da Linguagem Natural para dar estrutura a conjuntos de dados não estruturados já existem muitos mecanismos e literatura desenvolvida. Basicamente pretende-se seguir a linha desenvolvida pelo grupo da Universiade de Stanford\footnote{Stanford NLP Group \url{http://nlp.stanford.edu}}. Técnicas como modelagem probabilística de tópicos \cite{blei_probabilistic_2012} tendem a ser bastante relevantes assim como de alinhamento baseado em similaridades. Um exemplo de aplicação seria para anotação e busca semântica de documentos. Esse fluxo se pretende complementar e aumentar o grafo de conhecimento numa abordagem abdutiva que impulsiona mais descobertas e inovações \cite{gil_data_2009}.
+
+Teorias, metodologias e publicações na linha de \citeonline{jones_design_2013} e \citeonline{pitt_interleaving_2011} tendem incialmente ocupar um bom espaço e tempo de reflexão. Ao se investigar e avaliar o estado da arte de modelos baseados em agentes para simular reações e desdobramentos de cenários futuros, talvez seja necessário também desenvolver e acrescentar condicionantes ambientais à axiomatizações como as de \citeonline{pitt_axiomatization_2012}.
+
+Sendo um dos objetivos mais audaciosos dessa proposta, muito ainda deve ser acrescido ao que foi considerado até o momento para se investigar e avaliar o uso conjunto de fluxos semânticos de trabalho \cite{mattoso_addressing_2016} modelos baseados em agentes no suporte à decisões sobre questões de governança e sustentabilidade \cite{buckingham_shum_towards_2012}, principalmente no que se refere à necessidade de interligar o universo descritivo e numérico dos problemas \cite{patton_semnext:_2015}.
+
+
+% ----------------------------------------------------------
+% Capitulo de textual  
+% ----------------------------------------------------------
+\chapter{Fontes de dados}
+
+Modelos integrados do sistema terrestre, com dados provenientes de múltiplos provedores e que façam uso intensivo de tecnologias semânticas exigem interoperabilidade por sua natureza. A forma amplamente reconhecida e mais recente de atingir os mais exigentes níveis de interoperabilidade tem sido através da anotação semântica com vocabulários e terminologias controladas, com a ligação (ou conexão) de conjuntos de dados às definições de seus conteúdos. É amplamente desejável, tornando-se quase necessário, que esses dados sejam confiáveis e também acessíveis por máquina.
+
+Entre os objetivos periférios dessa pesquisa está o de incluir e disponibilizar publicamente o grafo de dados e informações utilizadas nos modelos diversificando as formas de consumo de dados e estatísticas públicas e também a visibilidade da escola e do instituto.
+
+Há primazia por valer-se de dados produzidos por órgãos públicos que estejam abertos ou em processo de abertura.
+
+Os provedores públicos de dados estruturados inicialmente cogitados serão enumeradas em seguida, sendo que os conjuntos específicos de dados devem ser definidos na medida em que forem sendo identificadas as informações mais relevantes para os modelos integrados. Inicialmente as próprias bases do Instituto Brasileiro de Geografia e Estatística (IBGE), seguidas por outras bases de interesse como IPEA (Instituto de Pesquisas Economicas Aplicadas), FGV (Fundação Getúlio Vargas), IBAMA (Instituto Brasileiro do Meio Ambiente), INPE (Instituto Nacional de Pesquisas Espaciais), ANA (Agência Nacional de Recursos Hídricos), ANTT (Agência Nacional de Transportes Terrestres), ANP (Agencia Nacional do Petróleo), CPRM (Serviço Geológico do Brasil), DNPM (Departamento Nacional de Produção Mineral), entre outros.
+
+Ainda é preciso salientar os prováveis usos de informações não estuturadas, como corpus de publicações, textos jurídicos e legislações, além documentos oficiais. Bases de dados como Scielo e Lattes são algumas das que estariam incialmente em vista.
+
+% ----------------------------------------------------------
+% Capitulo de textual  
+% ----------------------------------------------------------
+\chapter{Resultados esperados}
+
+Entre os resultados esperados mais elementares dessa pesquisa encontram-se um panorama sobre o estado de desenvolvimento das tecnologias semânticas e de dados ligados para interoperabilidade disponíveis no Brasil.
+
+Espera-se também poder contribuir com o desenvolvimento e expansão de um grafo público de conhecimento relacionado à população, território e condições de vida no Brasil.
+
+A avaliação sobre em que extensão as tecnologias semânticas poderiam contribuir tanto para a melhoria da comunicação e ampliação do entendimento no diálogo entre discliplinas dos campos Humano e Natural.
+
+A pesquisa prentende resultar também em uma avaliação crítica das possibilidades do aumento da riqueza e da quantidade de informações através do processento (por máquina) da linguagem natural por dar certa estrutura e sentido semântico à quantidades antes inacessíveis de informação.
+
+Espera-se, ao longo dos anos de execução, dar maior atenção aos modelos baseados em agentes para simulações e inferências sobre cenários futuros a partir da observação e amostragem de diversas séries de dados espaço-temporais.
+
+Por fim, espera-se contribuir, com precisão e confiabilidade das informações apresentadas e/ou recomendadas em diferentes escalas, para o avanço em direção à conquista dos objetivos globais para o desenvolvimento sustentável, no marco de 2030, mas que exigem, desde há muito, organização e ações coletivas em variadas escalas.
+
+% ----------------------------------------------------------
+% Capitulo de textual  
+% ----------------------------------------------------------
+%\chapter{Elementos textuais}
+%
+%\index{elementos textuais}A norma ABNT NBR 15287:2011, p. 5, apresenta a
+%seguinte orientação quanto aos elementos textuais:
+%
+%\begin{citacao}
+%O texto deve ser constituído de uma parte introdutória, na qual devem ser
+%expostos o tema do projeto, o problema a ser abordado, a(s) hipótese(s),
+%quando couber(em), bem como o(s) objetivo(s) a ser(em) atingido(s) e a(s)
+%justificativa(s). É necessário que sejam indicados o referencial teórico que
+%o embasa, a metodologia a ser utilizada, assim como os recursos e o cronograma
+%necessários à sua consecução.
+%\end{citacao}
+%
+%Consulte as demais normas da série ``Informação e documentação'' da ABNT
+%para outras informações. Uma lista com as principais normas dessa série, todas
+%observadas pelo \abnTeX, é apresentada em \citeonline{abntex2classe}.
+
+% ----------------------------------------------------------
+% Capitulo com exemplos de comandos inseridos de arquivo externo 
+% ----------------------------------------------------------
+
+%\include{abntex2-modelo-include-comandos}
+
+% ---
+% Finaliza a parte no bookmark do PDF
+% para que se inicie o bookmark na raiz
+% e adiciona espaço de parte no Sumário
+% ---
+\phantompart
+
+% ---
+% Conclusão
+% ---
+\chapter*[Considerações finais]{Considerações finais}
+
+A presente proposta de pesquisa é ainda um documento em construção. Foi iniciado, no contexto de reunir, ainda de forma bem aberta mas também com certo grau de detalhamento técnico, informações que abrissem um diálogo sobre os interesses, capacidade de articulação e possibilidades a serem exploradas conjuntamente no futuro caso haja interesse recíproco e sendo, é claro, o candidato selecionado e aprovado pelo processo seletivo neste ano de 2016 para o ano de 2017. Não se trata portanto de um documento elaborado após uma exaustiva pesquisa ou um aprofundado detalhamento do que venha a ser de fato desenvolvdo. Parece importante que haja espaço para contribuições diversas, seja do próprio candidato com um trabalho mais pormenorizado, sejam as de professores colaboradores que tenham interesse e venham eventualmente se envolver um pouco mais ou até mesmo dos que com ou sem experência acabem, voluntariamente ou não, deixando sua contribuição.
+
+Espero que mesmo simplificadamente uma mensagem clara de interesse pelo objeto Humano e Social de pesquisa, mesmo que esta se desenvolva a partir de métodos formais e tecnologicamente desafiadores.
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{phd}
+
+% ----------------------------------------------------------
+% Glossário
+% ----------------------------------------------------------
+%
+% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+%
+%\glossary
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+
+% ---
+% Inicia os apêndices
+% ---
+%\begin{apendicesenv}
+
+% Imprime uma página indicando o início dos apêndices
+%\partapendices
+
+% ----------------------------------------------------------
+%\chapter{Quisque libero justo}
+% ----------------------------------------------------------
+
+%\lipsum[50]
+
+% ----------------------------------------------------------
+%\chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula ac pretium ante justo a nulla curabitur tristique arcu eu metus}
+% ----------------------------------------------------------
+%\lipsum[55-57]
+
+%\end{apendicesenv}
+% ---
+
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+
+% ---
+% Inicia os anexos
+% ---
+%\begin{anexosenv}
+
+% Imprime uma página indicando o início dos anexos
+%\partanexos
+
+% ---
+%\chapter{Morbi ultrices rutrum lorem.}
+% ---
+%\lipsum[30]
+
+% ---
+%\chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus}
+% ---
+
+%\lipsum[31]
+
+% ---
+%\chapter{Fusce facilisis lacinia dui}
+% ---
+
+%\lipsum[32]
+
+%\end{anexosenv}
+
+%---------------------------------------------------------------------
+% INDICE REMISSIVO
+%---------------------------------------------------------------------
+
+%\phantompart
+
+%\printindex
+
+
+\end{document}

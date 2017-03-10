@@ -1,0 +1,125 @@
+\documentclass[10pt,
+%	a0page,
+	]{article}
+\usepackage{pgfgantt}
+% \usepackage{tikz}
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão
+\usepackage{geometry} % to change margins
+\usepackage{pdflscape} % provides the landscape environment
+\usepackage{ragged2e} % provides \RaggedLeft
+\usepackage{lmodern}
+
+\begin{document}
+
+% Second option
+\newgeometry{vmargin=0cm}
+\begin{landscape}
+%\thispagestyle{empty}
+\centering
+\begin{ganttchart}[vgrid={draw=none,draw=none},%
+            %today=15,%
+            %today offset=.5,%
+            %today label=Heute,%
+            %progress=today,%
+%            group label font=\tiny,
+            title label font=\scriptsize,
+%            progress label font=\tiny,
+            x unit=0.5cm,
+            y unit title=0.6cm,
+            y unit chart=0.6cm,
+            bar incomplete/.append style={fill=red},%
+            progress label text=  {\quad\pgfmathprintnumber[precision=0,verbatim]{#1}\%}%
+            % milestone label font=\scriptsize,
+            % group label font=\scriptsize,
+            % title label font=\scriptsize,
+            % bar label node/.style={text width=4cm,align=right,font=\scriptsize\RaggedLeft,anchor=east},
+            % milestone label node/.style={text width=2cm,align=right,font=\scriptsize\RaggedLeft,anchor=east},
+            % group label node/.style={text width=3cm,align=right,font=\scriptsize\RaggedLeft,anchor=east}
+            ]{1}{36}
+\gantttitlecalendar*[compress calendar,time slot format=isodate]{2017-01-1}{2019-12-31}{year} \\
+\gantttitlelist[
+	title list options=%
+		{var=\s, evaluate=\s as \x%
+		 using "S\s"}
+	]{1,...,6}{6} \\
+\gantttitlelist{1,...,36}{1}\\
+\ganttgroup{Duração Total}{1}{36} \\
+
+%%%%%%%%%%%%%%%%%Phase-1
+%\ganttgroup{Ontologies}{1}{12} \\
+
+\ganttgroup{Theory}{1}{24} \\
+\ganttbar{Courses}{1}{18} \\ %\ganttnewline
+\ganttbar{Literature Review}{1}{24} \\
+
+\ganttgroup{Selection}{7}{24} \\
+\ganttbar{Models}{7}{18} \\
+\ganttlinkedbar{Ontologies}{13}{21} \\
+\ganttlinkedbar{Data}{16}{24} \\
+
+\ganttgroup{Implementations}{7}{27} \\
+\ganttbar{NLP Workflow}{7}{15} \\
+\ganttbar{Triple Stores}{13}{21} \\
+\ganttlinkedbar{Matching and Reasoning}{19}{27} \\
+
+\ganttgroup{Simulations and Analyses}{19}{30} \\
+\ganttbar{Simulations}{19}{27} \\
+\ganttlinkedbar{Analyses}{25}{30} \\
+
+\ganttgroup{Thesis Writing}{25}{36} \\ %\ganttnewline
+\ganttbar{Writing}{25}{34} \\
+\ganttlinkedbar{Review}{35}{36} \\
+\ganttmilestone{Thesis}{36}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{ganttchart}
+\end{landscape}
+
+
+%% First option
+%\begin{ganttchart}[vgrid={draw=none,draw=none},%
+%            %today=15,%
+%            %today offset=.5,%
+%            %today label=Heute,%
+%            %progress=today,%
+%            x unit=0.3cm,
+%            y unit title=0.7cm,
+%            y unit chart=0.8cm,
+%            bar incomplete/.append style={fill=red},%
+%            progress label text=  {\quad\pgfmathprintnumber[precision=0,verbatim]{#1}\%},
+%            milestone label font=\tiny,
+%            group label font=\tiny,
+%            title label font=\tiny,
+%            bar label node/.style={text width=3cm,align=right,font=\scriptsize\RaggedLeft,anchor=east},
+%            milestone label node/.style={text width=2cm,align=right,font=\scriptsize\RaggedLeft,anchor=east},
+%            group label node/.style={text width=3cm,align=right,font=\scriptsize\RaggedLeft,anchor=east}
+%            ]{1}{36}
+%\gantttitlecalendar*[compress calendar,time slot format=isodate]{2015-11-1}{2018-10-30}{year, month} \\
+%\gantttitlelist{1,...,36}{1}\\
+%\ganttgroup{Total Duration}{1}{36} \\
+% %%%%%%%%%%%%%%%%%Phase-1
+%\ganttgroup{Phase 1}{1}{12} \\
+%\ganttbar{Scope Reading}{1}{2} \\
+%\ganttlinkedbar{Literature Review}{2}{5} \ganttnewline
+%\ganttlinkedbar{Define Scope of Review}{5}{6} \ganttnewline
+%\ganttlinkedbar{Search for Relevant Literature}{6}{10} \ganttnewline
+%\ganttlinkedbar{Classify the Documents}{10}{12} \ganttnewline
+%%%%%%%%%%%%%%%%%%Phase-2
+%\ganttgroup{Phase 2}{12}{24} \\
+%\ganttlinkedbar{Solver Analysis $\&$ Formulation}{10}{15} \\
+%\ganttlinkedbar{Development of source code}{15}{16} \ganttnewline
+%\ganttlinkedbar{Purchase Equipment}{16}{18} \ganttnewline
+%\ganttlinkedbar{Design Experimental Procedure}{18}{20} \ganttnewline
+%\ganttlinkedbar{Run Experiments}{20}{21} \ganttnewline
+%\ganttlinkedbar{Analysis of Experimental Data}{21}{24} \ganttnewline
+% %%%%%%%%%%%%%%%%%Phase-3
+%\ganttgroup{Phase 3}{24}{36} \\
+%\ganttbar{Solving Validation and Conclusion}{24}{27} \\
+%\ganttlinkedbar{Publications $\&$ Workshops}{27}{30} \ganttnewline
+%\ganttlinkedbar{Defence of Study Work}{30}{33} \ganttnewline
+%\ganttlinkedbar{Thesis Writing}{33}{36} \ganttnewline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\end{ganttchart}
+
+
+\end{document}
